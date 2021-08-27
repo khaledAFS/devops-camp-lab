@@ -285,7 +285,7 @@ class Order_Quantity(db.Model):
                                                                                                   self.order_id)
 
 
-def connect_to_db(app, database='postgresql:///shop'):
+def connect_to_db(app, database='postgresql://postgres:admin1@localhost:5432/shop'):
     """Connect the database to Flask app."""
 
     # Configure to use PostgreSQL database

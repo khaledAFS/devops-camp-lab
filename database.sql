@@ -34,7 +34,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: customer_recipes; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: customer_recipes; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE customer_recipes (
@@ -44,10 +44,10 @@ CREATE TABLE customer_recipes (
 );
 
 
-ALTER TABLE customer_recipes OWNER TO vagrant;
+ALTER TABLE customer_recipes OWNER TO postgres;
 
 --
--- Name: customer_recipes_cust_rec_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: customer_recipes_cust_rec_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE customer_recipes_cust_rec_id_seq
@@ -58,17 +58,17 @@ CREATE SEQUENCE customer_recipes_cust_rec_id_seq
     CACHE 1;
 
 
-ALTER TABLE customer_recipes_cust_rec_id_seq OWNER TO vagrant;
+ALTER TABLE customer_recipes_cust_rec_id_seq OWNER TO postgres;
 
 --
--- Name: customer_recipes_cust_rec_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: customer_recipes_cust_rec_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE customer_recipes_cust_rec_id_seq OWNED BY customer_recipes.cust_rec_id;
 
 
 --
--- Name: customer_restrictions; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: customer_restrictions; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE customer_restrictions (
@@ -78,10 +78,10 @@ CREATE TABLE customer_restrictions (
 );
 
 
-ALTER TABLE customer_restrictions OWNER TO vagrant;
+ALTER TABLE customer_restrictions OWNER TO postgres;
 
 --
--- Name: customer_restrictions_cust_restr_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: customer_restrictions_cust_restr_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE customer_restrictions_cust_restr_id_seq
@@ -92,17 +92,17 @@ CREATE SEQUENCE customer_restrictions_cust_restr_id_seq
     CACHE 1;
 
 
-ALTER TABLE customer_restrictions_cust_restr_id_seq OWNER TO vagrant;
+ALTER TABLE customer_restrictions_cust_restr_id_seq OWNER TO postgres;
 
 --
--- Name: customer_restrictions_cust_restr_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: customer_restrictions_cust_restr_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE customer_restrictions_cust_restr_id_seq OWNED BY customer_restrictions.cust_restr_id;
 
 
 --
--- Name: customers; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: customers; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE customers (
@@ -118,10 +118,10 @@ CREATE TABLE customers (
 );
 
 
-ALTER TABLE customers OWNER TO vagrant;
+ALTER TABLE customers OWNER TO postgres;
 
 --
--- Name: customers_user_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: customers_user_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE customers_user_id_seq
@@ -132,17 +132,17 @@ CREATE SEQUENCE customers_user_id_seq
     CACHE 1;
 
 
-ALTER TABLE customers_user_id_seq OWNER TO vagrant;
+ALTER TABLE customers_user_id_seq OWNER TO postgres;
 
 --
--- Name: customers_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: customers_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE customers_user_id_seq OWNED BY customers.user_id;
 
 
 --
--- Name: deliveries; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: deliveries; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE deliveries (
@@ -152,10 +152,10 @@ CREATE TABLE deliveries (
 );
 
 
-ALTER TABLE deliveries OWNER TO vagrant;
+ALTER TABLE deliveries OWNER TO postgres;
 
 --
--- Name: deliveries_delivery_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: deliveries_delivery_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE deliveries_delivery_id_seq
@@ -166,17 +166,17 @@ CREATE SEQUENCE deliveries_delivery_id_seq
     CACHE 1;
 
 
-ALTER TABLE deliveries_delivery_id_seq OWNER TO vagrant;
+ALTER TABLE deliveries_delivery_id_seq OWNER TO postgres;
 
 --
--- Name: deliveries_delivery_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: deliveries_delivery_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE deliveries_delivery_id_seq OWNED BY deliveries.delivery_id;
 
 
 --
--- Name: delivery_quantities; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: delivery_quantities; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE delivery_quantities (
@@ -187,10 +187,10 @@ CREATE TABLE delivery_quantities (
 );
 
 
-ALTER TABLE delivery_quantities OWNER TO vagrant;
+ALTER TABLE delivery_quantities OWNER TO postgres;
 
 --
--- Name: delivery_quantities_deliv_qty_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: delivery_quantities_deliv_qty_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE delivery_quantities_deliv_qty_id_seq
@@ -201,17 +201,17 @@ CREATE SEQUENCE delivery_quantities_deliv_qty_id_seq
     CACHE 1;
 
 
-ALTER TABLE delivery_quantities_deliv_qty_id_seq OWNER TO vagrant;
+ALTER TABLE delivery_quantities_deliv_qty_id_seq OWNER TO postgres;
 
 --
--- Name: delivery_quantities_deliv_qty_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: delivery_quantities_deliv_qty_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE delivery_quantities_deliv_qty_id_seq OWNED BY delivery_quantities.deliv_qty_id;
 
 
 --
--- Name: dietary_restrictions; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: dietary_restrictions; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE dietary_restrictions (
@@ -220,10 +220,10 @@ CREATE TABLE dietary_restrictions (
 );
 
 
-ALTER TABLE dietary_restrictions OWNER TO vagrant;
+ALTER TABLE dietary_restrictions OWNER TO postgres;
 
 --
--- Name: dietary_restrictions_diet_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: dietary_restrictions_diet_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE dietary_restrictions_diet_id_seq
@@ -234,17 +234,17 @@ CREATE SEQUENCE dietary_restrictions_diet_id_seq
     CACHE 1;
 
 
-ALTER TABLE dietary_restrictions_diet_id_seq OWNER TO vagrant;
+ALTER TABLE dietary_restrictions_diet_id_seq OWNER TO postgres;
 
 --
--- Name: dietary_restrictions_diet_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: dietary_restrictions_diet_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE dietary_restrictions_diet_id_seq OWNED BY dietary_restrictions.diet_id;
 
 
 --
--- Name: icons; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: icons; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE icons (
@@ -254,10 +254,10 @@ CREATE TABLE icons (
 );
 
 
-ALTER TABLE icons OWNER TO vagrant;
+ALTER TABLE icons OWNER TO postgres;
 
 --
--- Name: icons_icon_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: icons_icon_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE icons_icon_id_seq
@@ -268,17 +268,17 @@ CREATE SEQUENCE icons_icon_id_seq
     CACHE 1;
 
 
-ALTER TABLE icons_icon_id_seq OWNER TO vagrant;
+ALTER TABLE icons_icon_id_seq OWNER TO postgres;
 
 --
--- Name: icons_icon_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: icons_icon_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE icons_icon_id_seq OWNED BY icons.icon_id;
 
 
 --
--- Name: order_quantities; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: order_quantities; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE order_quantities (
@@ -289,10 +289,10 @@ CREATE TABLE order_quantities (
 );
 
 
-ALTER TABLE order_quantities OWNER TO vagrant;
+ALTER TABLE order_quantities OWNER TO postgres;
 
 --
--- Name: order_quantities_order_qty_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: order_quantities_order_qty_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE order_quantities_order_qty_id_seq
@@ -303,17 +303,17 @@ CREATE SEQUENCE order_quantities_order_qty_id_seq
     CACHE 1;
 
 
-ALTER TABLE order_quantities_order_qty_id_seq OWNER TO vagrant;
+ALTER TABLE order_quantities_order_qty_id_seq OWNER TO postgres;
 
 --
--- Name: order_quantities_order_qty_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: order_quantities_order_qty_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE order_quantities_order_qty_id_seq OWNED BY order_quantities.order_qty_id;
 
 
 --
--- Name: orders; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: orders; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE orders (
@@ -326,10 +326,10 @@ CREATE TABLE orders (
 );
 
 
-ALTER TABLE orders OWNER TO vagrant;
+ALTER TABLE orders OWNER TO postgres;
 
 --
--- Name: orders_order_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: orders_order_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE orders_order_id_seq
@@ -340,17 +340,17 @@ CREATE SEQUENCE orders_order_id_seq
     CACHE 1;
 
 
-ALTER TABLE orders_order_id_seq OWNER TO vagrant;
+ALTER TABLE orders_order_id_seq OWNER TO postgres;
 
 --
--- Name: orders_order_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: orders_order_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE orders_order_id_seq OWNED BY orders.order_id;
 
 
 --
--- Name: pickups; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: pickups; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE pickups (
@@ -363,10 +363,10 @@ CREATE TABLE pickups (
 );
 
 
-ALTER TABLE pickups OWNER TO vagrant;
+ALTER TABLE pickups OWNER TO postgres;
 
 --
--- Name: pickups_pickup_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: pickups_pickup_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE pickups_pickup_id_seq
@@ -377,17 +377,17 @@ CREATE SEQUENCE pickups_pickup_id_seq
     CACHE 1;
 
 
-ALTER TABLE pickups_pickup_id_seq OWNER TO vagrant;
+ALTER TABLE pickups_pickup_id_seq OWNER TO postgres;
 
 --
--- Name: pickups_pickup_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: pickups_pickup_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE pickups_pickup_id_seq OWNED BY pickups.pickup_id;
 
 
 --
--- Name: product_tags; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: product_tags; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE product_tags (
@@ -397,10 +397,10 @@ CREATE TABLE product_tags (
 );
 
 
-ALTER TABLE product_tags OWNER TO vagrant;
+ALTER TABLE product_tags OWNER TO postgres;
 
 --
--- Name: product_tags_prod_tag_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: product_tags_prod_tag_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE product_tags_prod_tag_id_seq
@@ -411,17 +411,17 @@ CREATE SEQUENCE product_tags_prod_tag_id_seq
     CACHE 1;
 
 
-ALTER TABLE product_tags_prod_tag_id_seq OWNER TO vagrant;
+ALTER TABLE product_tags_prod_tag_id_seq OWNER TO postgres;
 
 --
--- Name: product_tags_prod_tag_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: product_tags_prod_tag_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE product_tags_prod_tag_id_seq OWNED BY product_tags.prod_tag_id;
 
 
 --
--- Name: products; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: products; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE products (
@@ -443,10 +443,10 @@ CREATE TABLE products (
 );
 
 
-ALTER TABLE products OWNER TO vagrant;
+ALTER TABLE products OWNER TO postgres;
 
 --
--- Name: products_product_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: products_product_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE products_product_id_seq
@@ -457,17 +457,17 @@ CREATE SEQUENCE products_product_id_seq
     CACHE 1;
 
 
-ALTER TABLE products_product_id_seq OWNER TO vagrant;
+ALTER TABLE products_product_id_seq OWNER TO postgres;
 
 --
--- Name: products_product_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: products_product_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE products_product_id_seq OWNED BY products.product_id;
 
 
 --
--- Name: recipes; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: recipes; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE recipes (
@@ -479,10 +479,10 @@ CREATE TABLE recipes (
 );
 
 
-ALTER TABLE recipes OWNER TO vagrant;
+ALTER TABLE recipes OWNER TO postgres;
 
 --
--- Name: recipes_recipe_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: recipes_recipe_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE recipes_recipe_id_seq
@@ -493,17 +493,17 @@ CREATE SEQUENCE recipes_recipe_id_seq
     CACHE 1;
 
 
-ALTER TABLE recipes_recipe_id_seq OWNER TO vagrant;
+ALTER TABLE recipes_recipe_id_seq OWNER TO postgres;
 
 --
--- Name: recipes_recipe_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: recipes_recipe_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE recipes_recipe_id_seq OWNED BY recipes.recipe_id;
 
 
 --
--- Name: tags; Type: TABLE; Schema: public; Owner: vagrant
+-- Name: tags; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE tags (
@@ -512,10 +512,10 @@ CREATE TABLE tags (
 );
 
 
-ALTER TABLE tags OWNER TO vagrant;
+ALTER TABLE tags OWNER TO postgres;
 
 --
--- Name: tags_tag_id_seq; Type: SEQUENCE; Schema: public; Owner: vagrant
+-- Name: tags_tag_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE tags_tag_id_seq
@@ -526,115 +526,115 @@ CREATE SEQUENCE tags_tag_id_seq
     CACHE 1;
 
 
-ALTER TABLE tags_tag_id_seq OWNER TO vagrant;
+ALTER TABLE tags_tag_id_seq OWNER TO postgres;
 
 --
--- Name: tags_tag_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: vagrant
+-- Name: tags_tag_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE tags_tag_id_seq OWNED BY tags.tag_id;
 
 
 --
--- Name: cust_rec_id; Type: DEFAULT; Schema: public; Owner: vagrant
+-- Name: cust_rec_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY customer_recipes ALTER COLUMN cust_rec_id SET DEFAULT nextval('customer_recipes_cust_rec_id_seq'::regclass);
 
 
 --
--- Name: cust_restr_id; Type: DEFAULT; Schema: public; Owner: vagrant
+-- Name: cust_restr_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY customer_restrictions ALTER COLUMN cust_restr_id SET DEFAULT nextval('customer_restrictions_cust_restr_id_seq'::regclass);
 
 
 --
--- Name: user_id; Type: DEFAULT; Schema: public; Owner: vagrant
+-- Name: user_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY customers ALTER COLUMN user_id SET DEFAULT nextval('customers_user_id_seq'::regclass);
 
 
 --
--- Name: delivery_id; Type: DEFAULT; Schema: public; Owner: vagrant
+-- Name: delivery_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY deliveries ALTER COLUMN delivery_id SET DEFAULT nextval('deliveries_delivery_id_seq'::regclass);
 
 
 --
--- Name: deliv_qty_id; Type: DEFAULT; Schema: public; Owner: vagrant
+-- Name: deliv_qty_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY delivery_quantities ALTER COLUMN deliv_qty_id SET DEFAULT nextval('delivery_quantities_deliv_qty_id_seq'::regclass);
 
 
 --
--- Name: diet_id; Type: DEFAULT; Schema: public; Owner: vagrant
+-- Name: diet_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY dietary_restrictions ALTER COLUMN diet_id SET DEFAULT nextval('dietary_restrictions_diet_id_seq'::regclass);
 
 
 --
--- Name: icon_id; Type: DEFAULT; Schema: public; Owner: vagrant
+-- Name: icon_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY icons ALTER COLUMN icon_id SET DEFAULT nextval('icons_icon_id_seq'::regclass);
 
 
 --
--- Name: order_qty_id; Type: DEFAULT; Schema: public; Owner: vagrant
+-- Name: order_qty_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY order_quantities ALTER COLUMN order_qty_id SET DEFAULT nextval('order_quantities_order_qty_id_seq'::regclass);
 
 
 --
--- Name: order_id; Type: DEFAULT; Schema: public; Owner: vagrant
+-- Name: order_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY orders ALTER COLUMN order_id SET DEFAULT nextval('orders_order_id_seq'::regclass);
 
 
 --
--- Name: pickup_id; Type: DEFAULT; Schema: public; Owner: vagrant
+-- Name: pickup_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY pickups ALTER COLUMN pickup_id SET DEFAULT nextval('pickups_pickup_id_seq'::regclass);
 
 
 --
--- Name: prod_tag_id; Type: DEFAULT; Schema: public; Owner: vagrant
+-- Name: prod_tag_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY product_tags ALTER COLUMN prod_tag_id SET DEFAULT nextval('product_tags_prod_tag_id_seq'::regclass);
 
 
 --
--- Name: product_id; Type: DEFAULT; Schema: public; Owner: vagrant
+-- Name: product_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY products ALTER COLUMN product_id SET DEFAULT nextval('products_product_id_seq'::regclass);
 
 
 --
--- Name: recipe_id; Type: DEFAULT; Schema: public; Owner: vagrant
+-- Name: recipe_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY recipes ALTER COLUMN recipe_id SET DEFAULT nextval('recipes_recipe_id_seq'::regclass);
 
 
 --
--- Name: tag_id; Type: DEFAULT; Schema: public; Owner: vagrant
+-- Name: tag_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY tags ALTER COLUMN tag_id SET DEFAULT nextval('tags_tag_id_seq'::regclass);
 
 
 --
--- Data for Name: customer_recipes; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: customer_recipes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY customer_recipes (cust_rec_id, customer_id, recipe_id) FROM stdin;
@@ -642,14 +642,14 @@ COPY customer_recipes (cust_rec_id, customer_id, recipe_id) FROM stdin;
 
 
 --
--- Name: customer_recipes_cust_rec_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: customer_recipes_cust_rec_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('customer_recipes_cust_rec_id_seq', 1, false);
 
 
 --
--- Data for Name: customer_restrictions; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: customer_restrictions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY customer_restrictions (cust_restr_id, customer_id, diet_id) FROM stdin;
@@ -657,14 +657,14 @@ COPY customer_restrictions (cust_restr_id, customer_id, diet_id) FROM stdin;
 
 
 --
--- Name: customer_restrictions_cust_restr_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: customer_restrictions_cust_restr_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('customer_restrictions_cust_restr_id_seq', 1, false);
 
 
 --
--- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY customers (user_id, first_name, last_name, email, password_hash, street_address, zipcode, state, phone) FROM stdin;
@@ -673,14 +673,14 @@ COPY customers (user_id, first_name, last_name, email, password_hash, street_add
 
 
 --
--- Name: customers_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: customers_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('customers_user_id_seq', 1, true);
 
 
 --
--- Data for Name: deliveries; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: deliveries; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY deliveries (delivery_id, vendor, received_at) FROM stdin;
@@ -688,14 +688,14 @@ COPY deliveries (delivery_id, vendor, received_at) FROM stdin;
 
 
 --
--- Name: deliveries_delivery_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: deliveries_delivery_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('deliveries_delivery_id_seq', 1, false);
 
 
 --
--- Data for Name: delivery_quantities; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: delivery_quantities; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY delivery_quantities (deliv_qty_id, product_id, product_qty, delivery_id) FROM stdin;
@@ -703,14 +703,14 @@ COPY delivery_quantities (deliv_qty_id, product_id, product_qty, delivery_id) FR
 
 
 --
--- Name: delivery_quantities_deliv_qty_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: delivery_quantities_deliv_qty_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('delivery_quantities_deliv_qty_id_seq', 1, false);
 
 
 --
--- Data for Name: dietary_restrictions; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: dietary_restrictions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY dietary_restrictions (diet_id, name) FROM stdin;
@@ -718,14 +718,14 @@ COPY dietary_restrictions (diet_id, name) FROM stdin;
 
 
 --
--- Name: dietary_restrictions_diet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: dietary_restrictions_diet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('dietary_restrictions_diet_id_seq', 1, false);
 
 
 --
--- Data for Name: icons; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: icons; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY icons (icon_id, url, credit) FROM stdin;
@@ -938,14 +938,14 @@ COPY icons (icon_id, url, credit) FROM stdin;
 
 
 --
--- Name: icons_icon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: icons_icon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('icons_icon_id_seq', 410, true);
 
 
 --
--- Data for Name: order_quantities; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: order_quantities; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY order_quantities (order_qty_id, product_id, product_qty, order_id) FROM stdin;
@@ -953,14 +953,14 @@ COPY order_quantities (order_qty_id, product_id, product_qty, order_id) FROM std
 
 
 --
--- Name: order_quantities_order_qty_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: order_quantities_order_qty_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('order_quantities_order_qty_id_seq', 1, false);
 
 
 --
--- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY orders (order_id, customer_id, placed_at, total, pickup_id, received_at) FROM stdin;
@@ -968,14 +968,14 @@ COPY orders (order_id, customer_id, placed_at, total, pickup_id, received_at) FR
 
 
 --
--- Name: orders_order_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: orders_order_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('orders_order_id_seq', 1, false);
 
 
 --
--- Data for Name: pickups; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: pickups; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY pickups (pickup_id, name, street_address, description, zipcode, state) FROM stdin;
@@ -990,14 +990,14 @@ COPY pickups (pickup_id, name, street_address, description, zipcode, state) FROM
 
 
 --
--- Name: pickups_pickup_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: pickups_pickup_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('pickups_pickup_id_seq', 7, true);
 
 
 --
--- Data for Name: product_tags; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: product_tags; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY product_tags (prod_tag_id, product_id, tag_id) FROM stdin;
@@ -3559,14 +3559,14 @@ COPY product_tags (prod_tag_id, product_id, tag_id) FROM stdin;
 
 
 --
--- Name: product_tags_prod_tag_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: product_tags_prod_tag_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('product_tags_prod_tag_id_seq', 2554, true);
 
 
 --
--- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY products (product_id, name, description, weight, unit, price, price_per, per_unit, aisle, category, img, icon_id, color, search_term, search_strength) FROM stdin;
@@ -4642,14 +4642,14 @@ COPY products (product_id, name, description, weight, unit, price, price_per, pe
 
 
 --
--- Name: products_product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: products_product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('products_product_id_seq', 1068, true);
 
 
 --
--- Data for Name: recipes; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: recipes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY recipes (recipe_id, url, name, ingredients, img) FROM stdin;
@@ -4657,14 +4657,14 @@ COPY recipes (recipe_id, url, name, ingredients, img) FROM stdin;
 
 
 --
--- Name: recipes_recipe_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: recipes_recipe_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('recipes_recipe_id_seq', 1, false);
 
 
 --
--- Data for Name: tags; Type: TABLE DATA; Schema: public; Owner: vagrant
+-- Data for Name: tags; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY tags (tag_id, name) FROM stdin;
@@ -4706,14 +4706,14 @@ COPY tags (tag_id, name) FROM stdin;
 
 
 --
--- Name: tags_tag_id_seq; Type: SEQUENCE SET; Schema: public; Owner: vagrant
+-- Name: tags_tag_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('tags_tag_id_seq', 34, true);
 
 
 --
--- Name: customer_recipes_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: customer_recipes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY customer_recipes
@@ -4721,7 +4721,7 @@ ALTER TABLE ONLY customer_recipes
 
 
 --
--- Name: customer_restrictions_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: customer_restrictions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY customer_restrictions
@@ -4729,7 +4729,7 @@ ALTER TABLE ONLY customer_restrictions
 
 
 --
--- Name: customers_email_key; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: customers_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY customers
@@ -4737,7 +4737,7 @@ ALTER TABLE ONLY customers
 
 
 --
--- Name: customers_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: customers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY customers
@@ -4745,7 +4745,7 @@ ALTER TABLE ONLY customers
 
 
 --
--- Name: deliveries_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: deliveries_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY deliveries
@@ -4753,7 +4753,7 @@ ALTER TABLE ONLY deliveries
 
 
 --
--- Name: delivery_quantities_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: delivery_quantities_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY delivery_quantities
@@ -4761,7 +4761,7 @@ ALTER TABLE ONLY delivery_quantities
 
 
 --
--- Name: dietary_restrictions_name_key; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: dietary_restrictions_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY dietary_restrictions
@@ -4769,7 +4769,7 @@ ALTER TABLE ONLY dietary_restrictions
 
 
 --
--- Name: dietary_restrictions_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: dietary_restrictions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY dietary_restrictions
@@ -4777,7 +4777,7 @@ ALTER TABLE ONLY dietary_restrictions
 
 
 --
--- Name: icons_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: icons_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY icons
@@ -4785,7 +4785,7 @@ ALTER TABLE ONLY icons
 
 
 --
--- Name: order_quantities_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: order_quantities_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY order_quantities
@@ -4793,7 +4793,7 @@ ALTER TABLE ONLY order_quantities
 
 
 --
--- Name: orders_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: orders_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY orders
@@ -4801,7 +4801,7 @@ ALTER TABLE ONLY orders
 
 
 --
--- Name: pickups_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: pickups_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY pickups
@@ -4809,7 +4809,7 @@ ALTER TABLE ONLY pickups
 
 
 --
--- Name: product_tags_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: product_tags_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY product_tags
@@ -4817,7 +4817,7 @@ ALTER TABLE ONLY product_tags
 
 
 --
--- Name: products_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: products_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY products
@@ -4825,7 +4825,7 @@ ALTER TABLE ONLY products
 
 
 --
--- Name: recipes_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: recipes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY recipes
@@ -4833,7 +4833,7 @@ ALTER TABLE ONLY recipes
 
 
 --
--- Name: tags_name_key; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: tags_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY tags
@@ -4841,7 +4841,7 @@ ALTER TABLE ONLY tags
 
 
 --
--- Name: tags_pkey; Type: CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: tags_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY tags
@@ -4849,7 +4849,7 @@ ALTER TABLE ONLY tags
 
 
 --
--- Name: customer_recipes_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: customer_recipes_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY customer_recipes
@@ -4857,7 +4857,7 @@ ALTER TABLE ONLY customer_recipes
 
 
 --
--- Name: customer_recipes_recipe_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: customer_recipes_recipe_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY customer_recipes
@@ -4865,7 +4865,7 @@ ALTER TABLE ONLY customer_recipes
 
 
 --
--- Name: customer_restrictions_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: customer_restrictions_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY customer_restrictions
@@ -4873,7 +4873,7 @@ ALTER TABLE ONLY customer_restrictions
 
 
 --
--- Name: customer_restrictions_diet_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: customer_restrictions_diet_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY customer_restrictions
@@ -4881,7 +4881,7 @@ ALTER TABLE ONLY customer_restrictions
 
 
 --
--- Name: delivery_quantities_delivery_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: delivery_quantities_delivery_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY delivery_quantities
@@ -4889,7 +4889,7 @@ ALTER TABLE ONLY delivery_quantities
 
 
 --
--- Name: delivery_quantities_product_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: delivery_quantities_product_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY delivery_quantities
@@ -4897,7 +4897,7 @@ ALTER TABLE ONLY delivery_quantities
 
 
 --
--- Name: order_quantities_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: order_quantities_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY order_quantities
@@ -4905,7 +4905,7 @@ ALTER TABLE ONLY order_quantities
 
 
 --
--- Name: order_quantities_product_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: order_quantities_product_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY order_quantities
@@ -4913,7 +4913,7 @@ ALTER TABLE ONLY order_quantities
 
 
 --
--- Name: orders_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: orders_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY orders
@@ -4921,7 +4921,7 @@ ALTER TABLE ONLY orders
 
 
 --
--- Name: orders_pickup_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: orders_pickup_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY orders
@@ -4929,7 +4929,7 @@ ALTER TABLE ONLY orders
 
 
 --
--- Name: product_tags_product_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: product_tags_product_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY product_tags
@@ -4937,7 +4937,7 @@ ALTER TABLE ONLY product_tags
 
 
 --
--- Name: product_tags_tag_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: product_tags_tag_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY product_tags
@@ -4945,7 +4945,7 @@ ALTER TABLE ONLY product_tags
 
 
 --
--- Name: products_icon_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: vagrant
+-- Name: products_icon_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY products

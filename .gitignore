@@ -1,0 +1,7 @@
+env
+secrets.sh
+*.pyc
+.DS_Store
+static/js/secrets.js
+.idea
+__pycache__

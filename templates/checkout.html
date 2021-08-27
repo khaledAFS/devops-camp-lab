@@ -69,7 +69,7 @@
 
         <tr>
             <td>
-                {{ session['cart'][item.product_id] }}
+                {{ session['cart'][item.product_id|string] }}
             </td>
             <td>{{ item.name }} @ {{ item.price }} each</td>
         </tr>

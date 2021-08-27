@@ -149,14 +149,16 @@ def serve_filtered_products_json():
         prods = db.session.query(Product).all()
 
     categories = db.session.query(Product.category).group_by(Product.category).all()
+    cat = []
+    for category in categories:
+        cat.append(category[0])
     products = {}
     for prod in prods:
         products[prod.product_id] = {"name": prod.name, "id": prod.product_id, "price": prod.price, "img": prod.img,
                                      "weight": prod.weight, "unit": prod.unit}
         # if prod.icon_id:
         #     products[prod.product_id]["icon"] = prod.icon.url
-
-    return jsonify(**{"products": products, "categories": categories})
+    return jsonify({"products": products, "categories": cat})
 
 
 @app.route('/products', methods=["POST"])
@@ -167,7 +169,7 @@ def add_products_to_cart():
     product = Product.query.get(product_id)
     session["cart"] = session.get("cart", {})
     # session["cart_total"] = session.get("cart_total", 0) + product.price
-    session["cart"][product_id] = session["cart"].get(product_id, 0) + 1
+    session["cart"][str(product_id)] = session["cart"].get(product_id, 0) + 1
 
     cart = session["cart"]
     print(cart)
@@ -192,10 +194,10 @@ def add_product_to_cart(product_id):
 
     session["cart"] = session.get("cart", {})
     # session["cart_total"] = session.get("cart_total", 0) + product.price
-    session["cart"][product_id] = session["cart"].get(product_id, 0) + 1
+    session["cart"][str(product_id)] = session["cart"].get(product_id, 0) + 1
 
     cart = session["cart"]
-    print(cart)
+    print(cart + "test")
 
     return redirect('/products/' + str(product_id))
 
@@ -279,15 +281,15 @@ def save_recipe():
     recipe = request.json.get('recipe')
     print(recipe)
     customer_id = db.session.query(Customer.user_id).filter(Customer.email == session['email'])
-    recipe_id = db.session.query(Recipe.recipe_id).filter(Recipe.url == recipe['url'.encode('unicode')]).first()
+    recipe_id = db.session.query(Recipe.recipe_id).filter(Recipe.url == recipe['url'.encode('utf-8')]).first()
     if not recipe_id:
-        new_recipe = Recipe(url=recipe['url'.encode('unicode')],
-                            name=recipe['name'.encode('unicode')],
-                            ingredients=recipe['ingredients'.encode('unicode')],
-                            img=recipe['image'.encode('unicode')])
+        new_recipe = Recipe(url=recipe['url'.encode('utf-8')],
+                            name=recipe['name'.encode('utf-8')],
+                            ingredients=recipe['ingredients'.encode('utf-8')],
+                            img=recipe['image'.encode('utf-8')])
         db.session.add(new_recipe)
         db.session.commit()
-        recipe_id = db.session.query(Recipe.recipe_id).filter(Recipe.url == recipe['url'.encode('unicode')]).first()
+        recipe_id = db.session.query(Recipe.recipe_id).filter(Recipe.url == recipe['url'.encode('utf-8')]).first()
 
     customer_recipe = Customer_Recipe(customer_id=customer_id, recipe_id=recipe_id)
 
@@ -326,7 +328,7 @@ def add_to_cart_from_ng():
     session['cart'] = session.get('cart', {})
     print(session['cart'])
     product_id = request.json.get('product_id')
-    session['cart'][int(product_id)] = session['cart'].get(int(product_id), 0) + 1
+    session['cart'][str(product_id)] = session['cart'].get(int(product_id), 0) + 1
     session.modified = True
     print(session['cart'])
 
@@ -340,16 +342,12 @@ def add_to_cart_from_ng():
 def update_cart_from_ng():
     """Update cart from dropdowns on cart page"""
 
-    print(session['cart'])
     product_id = request.json.get('product_id')
     qty = request.json.get('qty')
-    print(product_id)
-    print(qty)
 
     if product_id and qty:
-        session['cart'][int(product_id)] = int(qty)
+        session['cart'][str(product_id)] = int(qty)
         session.modified = True
-        print(session['cart'])
         return "Success"
     else:
         return "Missing parameters"
@@ -363,7 +361,7 @@ def delete_from_cart():
     print(session['cart'])
 
     if product_id:
-        del session['cart'][int(product_id)]
+        del session['cart'][str(product_id)]
         session.modified = True
         print(session['cart'])
         return "Success"
@@ -412,20 +410,19 @@ def get_cart_json():
     result = {"contents": [], "cart": {}}
 
     for product_obj in result_objects:
-        result["cart"][product_obj.product_id] = {"name": product_obj.name,
-                                                  "qty": session["cart"][product_obj.product_id],
-                                                  "description": product_obj.description,
-                                                  "weight": product_obj.weight,
-                                                  "unit": product_obj.unit,
-                                                  "price": product_obj.price,
-                                                  "price_per": product_obj.price_per,
-                                                  "per_unit": product_obj.per_unit,
-                                                  "product_id": product_obj.product_id,
-                                                  "icon": None}
+        result["cart"][str(product_obj.product_id)] = {"name": product_obj.name,
+                                                       "qty": session["cart"][str(product_obj.product_id)],
+                                                       "description": product_obj.description,
+                                                       "weight": product_obj.weight,
+                                                       "unit": product_obj.unit,
+                                                       "price": product_obj.price,
+                                                       "price_per": product_obj.price_per,
+                                                       "per_unit": product_obj.per_unit,
+                                                       "product_id": product_obj.product_id,
+                                                       "icon": None}
         if product_obj.icon_id:
-            result["cart"][product_obj.product_id]["icon"] = product_obj.icon.url
+            result["cart"][str(product_obj.product_id)]["icon"] = product_obj.icon.url
         result["contents"].append(str(product_obj.product_id))
-        print(result["cart"])
 
     return jsonify(**result)
 

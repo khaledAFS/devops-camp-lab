@@ -19,8 +19,8 @@ def split_params(param_list):
 
 def get_recipes(param_list):
     recipe_list = []
-    app_id = environ["EDAMAM"]
-    app_key = environ["EDAMAM_KEY"]
+    app_id = '9b84c19d'
+    app_key = 'e0c3dbf9871c26f6dbb900aaa0c71bd8'
 
     params = []
     for param in param_list:

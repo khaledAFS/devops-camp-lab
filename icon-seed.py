@@ -11,7 +11,7 @@ def get_product_names(link):
     Parse for search terms
     Use selenium to get icons"""
 
-    # icons = {"apple": {"products": [], "link": url, "credit": credit}}
+
 
     with open('products.txt') as filename:
         for line in filename:
@@ -23,34 +23,45 @@ def get_product_names(link):
             icon_exists = False
 
             for word in term:
-                if word in icons:
+                if word in list(icons.keys()):
                     icons[word]['products'].append(product_id)
                     icon_exists = True
                     print("exists!")
-                    continue
-                elif word[:-1] in icons:
+                elif word[:-1] in icons.keys():
                     icons[word[:-1]]['products'].append(product_id)
                     icon_exists = True
                     print("exists!")
-                    continue
 
             if not icon_exists:
-                term = term[0]
+                use_term = False
+                if ')' in term[0]:
+                    for word in term:
+                        if use_term:
+                            term = word
+                            break
+                        elif '(' in word:
+                            use_term = True
+                else:
+                    term = term[0]
+
                 print(term)
                 driver.get(link + term)
-                time.sleep(4)
+                time.sleep(3)
                 try:
                     icon = driver.find_element_by_css_selector("div.Grid-cell.loaded")  # div
-                except Exception:
+                except:
                     continue
                 image = icon.find_element_by_tag_name('img').get_attribute("src")
                 driver.get(icon.find_element_by_tag_name('a').get_attribute("href"))
-                time.sleep(4)
+                time.sleep(3)
                 try:
                     name = driver.find_element_by_css_selector("h1.main-term").text  # h1
+                except:
+                    name = 'not found'
+                try:
                     designer = driver.find_element_by_css_selector("span.designer").text  # span
-                except Exception:
-                    continue
+                except:
+                    designer = 'not found'
                 icons[term] = {"products": [product_id]}
                 icons[term]["link"] = image
                 icons[term]["credit"] = name + " " + designer
@@ -60,25 +71,19 @@ def get_product_names(link):
 def write_to_file(icons):
     """Writes info from Selenium to file for use in pSQL later"""
 
-    with open('icons.txt', 'a') as file1:
+    with open('icons.txt', 'w') as file1:
         for icon in icons:
-            file1.write(icon)
-            file1.write("|")
-            try:
-                file1.write(icons[icon]["credit"].decode('utf8'))
-            except Exception:
-                file1.write("Uncredited")
-            file1.write("|")
-            file1.write(icons[icon]["link"])
-            file1.write("\n")
 
-    with open('product_icons.txt', 'a') as file2:
+            try:
+                credit = icons[icon]["credit"].decode('utf8')
+            except:
+                credit = "Uncredited"
+            file1.write('{} | {} | {}\n'.format(icon, credit, icons[icon]["link"]))
+
+    with open('product_icons.txt', 'w') as file2:
         for icon in icons:
             for product in icons[icon]["products"]:
-                file2.write(icon)
-                file2.write("|")
-                file2.write(product)
-                file2.write("\n")
+                file2.write('{} | {}\n'.format(icon, product))
 
 
 get_product_names(link)

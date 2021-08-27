@@ -18,7 +18,7 @@ def add_all(link_list):
 
 
 def add_products(link):
-    soup = urllib.urlopen(link).read()
+    soup = urllib.request.urlopen(link).read()
     html = BeautifulSoup(soup, "html.parser")
 
     produce = html.find_all("div", class_="product-tile")
@@ -47,7 +47,7 @@ def add_products(link):
         a = site_url + product.find("a", class_="js-product-link")["href"]
 
         # navigating to product detail page for more data
-        prod_page = urllib.urlopen(a).read()
+        prod_page = urllib.request.urlopen(a).read()
         html2 = BeautifulSoup(prod_page, "html.parser")
         description = UnicodeDammit(
             html2.find("div", class_="description-body").get_text()).unicode_markup  # .encode('utf-8')

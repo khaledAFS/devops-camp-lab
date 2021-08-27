@@ -19,6 +19,7 @@ $(document).ready(function() {
         $.post(route,
             data,
             function(evt) {
+                console.log("item added to cart")
                 alert("Item added to cart!");
         });
     }

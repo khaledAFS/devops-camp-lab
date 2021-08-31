@@ -19,7 +19,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'habor-auth', variable: 'HARBOR-AUTH')]) {
                     script{
                         tool name: 'docker'
-                        docker.build('db-test:latest')
+                        docker.build('db-test:latest', '-f dbDockerfile .')
                         docker.withServer('https://harbor.dev.afsmtddso.com', '$HARBOR-AUTH') {
                             docker.image('db-test:latest').push('latest')
                         }

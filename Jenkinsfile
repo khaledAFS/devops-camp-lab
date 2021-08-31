@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Application docker build') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'habor-auth', variable: 'HARBOR-AUTH')]) {
+                withCredentials([usernamePassword(credentialsId: 'harbor-auth', variable: 'HARBOR-AUTH')]) {
                     script{
                         tool name: 'docker'
                         docker.build('lab-test:latest')
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Database docker build') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'habor-auth', variable: 'HARBOR-AUTH')]) {
+                withCredentials([usernamePassword(credentialsId: 'harbor-auth', variable: 'HARBOR-AUTH')]) {
                     script{
                         tool name: 'docker'
                         docker.build('db-test:latest', '-f dbDockerfile .')

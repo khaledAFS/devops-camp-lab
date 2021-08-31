@@ -1,3 +1,5 @@
+import os
+
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy_utils import ArrowType
 import arrow
@@ -285,7 +287,7 @@ class Order_Quantity(db.Model):
                                                                                                   self.order_id)
 
 
-def connect_to_db(app, database='postgresql://postgres:admin1@localhost:5432/shop'):
+def connect_to_db(app, database='postgresql://' + os.environ["DB_USER"] + ':' + os.environ["DB_PASS"] + '@postgres-db:5432/shop'):
     """Connect the database to Flask app."""
 
     # Configure to use PostgreSQL database

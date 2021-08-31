@@ -3,14 +3,15 @@ pipeline {
     stages {
         stage('Application docker build') {
             steps {
-                withCredentials([string(credentialsId: 'habor-auth', variable: 'harbor-auth')]) {
+                // withCredentials([string(credentialsId: 'habor-auth', variable: 'harbor-auth')]) {
                     script{
+                        tool name: 'docker'
                         docker.build('test:latest')
-                        docker.withRegistry('https://harbor.dev.afsmtddso.com', 'habor-auth') {
+                        docker.withServer('https://harbor.dev.afsmtddso.com') {
                             docker.image('test:latest').push('latest')
                         }
                     }
-                }
+                // }
             }
         }
     }

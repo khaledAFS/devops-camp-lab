@@ -1,25 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Application docker build') {
             steps {
-                echo "Building stage"
+                withCredentials([string(credentialsId: 'habor-auth', variable: 'harbor-auth')]) {
+                    script{
+                        docker.build('test:latest')
+                        docker.withRegistry('https://harbor.dev.afsmtddso.com', 'habor-auth') {
+                            docker.image('test:latest').push('latest')
+                        }
+                    }
+                }
             }
-        }
-        stage('Test') {
-            steps {
-                echo "Testing stage"
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo "Deploying stage"
-            }
-        }
-    }
-    post {
-        cleanup {
-            echo "Post action"
         }
     }
 }

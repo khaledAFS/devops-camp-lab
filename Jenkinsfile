@@ -1,14 +1,18 @@
 pipeline {
     agent any
+    environment {
+        HARBOR_REGISTRY = 'harbor.dev.afsmtddso.com'
+        HARBOR_REPOSITORY = 'devsecops-lab'
+    }
     stages {
         stage('Application docker build') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'harbor-auth', variable: 'HARBOR-AUTH')]) {
+                withCredentials([usernameColonPassword(credentialsId: 'harbor-auth', variable: 'HARBOR-AUTH')]) {
                     script{
-                        tool name: 'docker'
-                        docker.build('lab-test:latest')
-                        docker.withServer('https://harbor.dev.afsmtddso.com', '$HARBOR-AUTH') {
-                            docker.image('lab-test:latest').push('latest')
+                        docker.build('lab')
+                        docker.withRegistry('https://$HARBOR_REGISTRY', 'harbor-auth') {
+                            sh 'docker tag lab $HARBOR_REGISTRY/$HARBOR_REPOSITORY/lab:latest'
+                            sh 'docker push $HARBOR_REGISTRY/$HARBOR_REPOSITORY/lab:latest'
                         }
                     }
                 }
@@ -16,16 +20,26 @@ pipeline {
         }
         stage('Database docker build') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'harbor-auth', variable: 'HARBOR-AUTH')]) {
+                withCredentials([usernameColonPassword(credentialsId: 'harbor-auth', variable: 'HARBOR-AUTH')]) {
                     script{
-                        tool name: 'docker'
-                        docker.build('db-test:latest', '-f dbDockerfile .')
-                        docker.withServer('https://harbor.dev.afsmtddso.com', '$HARBOR-AUTH') {
-                            docker.image('db-test:latest').push('latest')
+                        docker.build('db', '-f dbDockerfile .')
+                        docker.withRegistry('https://$HARBOR_REGISTRY', 'harbor-auth') {
+                            sh 'docker tag db $HARBOR_REGISTRY/$HARBOR_REPOSITORY/db:latest'
+                            sh 'docker push $HARBOR_REGISTRY/$HARBOR_REPOSITORY/db:latest'
                         }
                     }
                 }
             }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing stage'
+            }
+        }
+    }
+    post {
+        cleanup {
+            echo 'Post actions'
         }
     }
 }

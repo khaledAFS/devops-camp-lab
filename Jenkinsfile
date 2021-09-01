@@ -36,6 +36,11 @@ pipeline {
                 echo 'Testing stage'
             }
         }
+        stage('Deploy') {
+            steps {
+                echo 'Deployment stage'
+            }
+        }
     }
     post {
         cleanup {

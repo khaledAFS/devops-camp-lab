@@ -16,7 +16,7 @@ urlScanInit = urlBase + projectSha + '/scan'
 scanInitResp = requests.post(urlScanInit, data={}, auth=userPass)
 if scanInitResp.status_code != 202:
     print('Failed to scan image')
-    print('Connection status code:', scanInitResp.status_code)
+    print('Http status code:', scanInitResp.status_code)
     sys.exit(-1)
 
 ## Checks scanner status ##

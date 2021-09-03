@@ -20,6 +20,7 @@ digestResp = requests.get(urlBase)
 projectSha = digestResp.json()[0]['digest']
 username = os.getenv('HARBOR_USER')
 password = os.getenv('HARBOR_PASS')
+print(password)
 
 
 ## Initialize image scanner ##

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: farm
+  name: lab-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: farm
+  template:
+    metadata:
+      labels:
+        app: farm
+    spec:
+      containers:
+      - env:
+        - name: DB_USER
+          value: "$(DB_USER)"
+        - name: DB_PASS
+          value: "$(DB_PASS)"
+        image: harbor.dev.afsmtddso.com/devsecops-lab/lab:latest
+        name: farm
+        ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: farm
+  name: lab-service
+spec:
+  type: NodePort
+  ports:
+  - name: "8080"
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: farm

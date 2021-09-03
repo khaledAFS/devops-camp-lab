@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: db
+  name: db-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - env:
+        - name: POSTGRES_PASSWORD
+          value: "$(DB_PASS)"
+        - name: POSTGRES_DB
+          value: "$(DB_NAME)"
+        image: harbor.dev.afsmtddso.com/devsecops-lab/db:latest
+        name: db
+        ports:
+        - containerPort: 5432
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: db
+  name: db-service
+spec:
+  type: ClusterIP
+  ports:
+  - name: "5432"
+    port: 5432
+    targetPort: 5432
+  selector:
+    app: db

@@ -7,6 +7,7 @@ pipeline {
     stages {
         stage('Application docker build') {
             steps {
+                echo 'Building application image'
                 withCredentials([usernameColonPassword(credentialsId: 'harbor-auth', variable: 'HARBOR-AUTH')]) {
                     script{
                         docker.build('lab')
@@ -20,6 +21,7 @@ pipeline {
         }
         stage('Database docker build') {
             steps {
+                echo 'Building database image'
                 withCredentials([usernameColonPassword(credentialsId: 'harbor-auth', variable: 'HARBOR-AUTH')]) {
                     script{
                         docker.build('db', '-f dbDockerfile .')
@@ -31,10 +33,17 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('Test: Scan docker images') {
+            environment {
+                APP_IMAGE = 'lab'
+                DB_IMAGE = 'db'
+            }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'harbor-auth', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh 'python harbor_scanner.py -i nginx -r $HARBOR_REGISTRY -p $HARBOR_REPOSITORY -c ${USERNAME}:${PASSWORD}'
+                    echo 'Scanning $APP_IMAGE image'
+                    sh 'python harbor_scanner.py -i $APP_IMAGE -r $HARBOR_REGISTRY -p $HARBOR_REPOSITORY -c ${USERNAME}:${PASSWORD}'
+                    echo 'Scanning $DB_IMAGE image'
+                    sh 'python harbor_scanner.py -i $DB_IMAGE -r $HARBOR_REGISTRY -p $HARBOR_REPOSITORY -c ${USERNAME}:${PASSWORD}'
                 }
             }
         }

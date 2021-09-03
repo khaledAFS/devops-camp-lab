@@ -1,4 +1,4 @@
-import requests, time, sys, json, getopt, os
+import requests, time, sys, json, getopt
 
 ## Arguments needed from user ##
 argList = sys.argv[1:]

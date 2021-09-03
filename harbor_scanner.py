@@ -1,23 +1,35 @@
-import requests, time, sys, json
+import requests, time, sys, json, getopt
 
 ## Arguments needed from user ##
-userPass = ('', '')
-registry = 'harbor.dev.afsmtddso.com'
-projectName = 'devsecops-lab'
-imageName = 'nginx'
+argList = sys.argv[1:]
+options = 'c:i:p:r:'
+
+arguments, values = getopt.getopt(argList, options)
+for currentArgument, currentValue in arguments:
+    if currentArgument in ("-c"):
+        username, password = currentValue.split(':')
+    elif currentArgument in ("-i"):
+        imageName = currentValue
+    elif currentArgument in ("-p"):
+        projectName = currentValue
+    elif currentArgument in ("-r"):
+        registry = currentValue
+
 
 ## Grab sha256 digest from Harbor project repository ##
 urlBase = 'https://' + registry + '/api/v2.0/projects/' + projectName + '/repositories/' + imageName + '/artifacts/'
 digestResp = requests.get(urlBase)
 projectSha = digestResp.json()[0]['digest']
 
+
 ## Initialize image scanner ##
 urlScanInit = urlBase + projectSha + '/scan'
-scanInitResp = requests.post(urlScanInit, data={}, auth=userPass)
+scanInitResp = requests.post(urlScanInit, data={}, auth=(username, password))
 if scanInitResp.status_code != 202:
     print('Failed to scan image')
-    print('Http status code:', scanInitResp.status_code)
+    print('Server response code:', scanInitResp.status_code)
     sys.exit(-1)
+
 
 ## Checks scanner status ##
 urlScanOverview = urlBase + projectSha + '?with_scan_overview=true'

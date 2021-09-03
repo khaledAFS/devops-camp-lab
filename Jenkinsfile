@@ -33,7 +33,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing stage'
+                withCredentials([usernamePassword(credentialsId: 'harbor-auth', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh 'python harbor_scanner.py -i nginx -r $HARBOR_REGISTRY -p $HARBOR_REPOSITORY -c ${USERNAME}:${PASSWORD}'
+                }
             }
         }
         stage('Deploy') {

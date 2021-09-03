@@ -7,6 +7,7 @@ options = 'c:i:p:r:'
 arguments, values = getopt.getopt(argList, options)
 for currentArgument, currentValue in arguments:
     if currentArgument in ("-c"):
+        print(os.getenv(currentValue))
         username, password = os.getenv(currentValue).split(':')
     elif currentArgument in ("-i"):
         imageName = currentValue

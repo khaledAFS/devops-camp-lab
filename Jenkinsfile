@@ -36,7 +36,7 @@ pipeline {
                 }
             }
         }
-        stage('Test: Scan docker images') {
+        stage('Security scanning') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'harbor-auth', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     echo "Scanning $APP_IMAGE_NAME image"
@@ -44,6 +44,11 @@ pipeline {
                     echo "Scanning $DB_IMAGE_NAME image"
                     sh 'python harbor_scanner.py -i $DB_IMAGE_NAME -r $HARBOR_REGISTRY -p $HARBOR_REPOSITORY -c ${USERNAME}:${PASSWORD}'
                 }
+            }
+        }
+        stage('Test'){
+            steps {
+                echo "Testing stage"
             }
         }
         stage('Deploy') {

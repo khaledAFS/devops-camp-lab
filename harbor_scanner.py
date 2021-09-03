@@ -18,11 +18,13 @@ for currentArgument, currentValue in arguments:
 urlBase = 'https://' + registry + '/api/v2.0/projects/' + projectName + '/repositories/' + imageName + '/artifacts/'
 digestResp = requests.get(urlBase)
 projectSha = digestResp.json()[0]['digest']
+username = os.getenv('HARBOR_USER')
+password = os.getenv('HARBOR_PASS')
 
 
 ## Initialize image scanner ##
 urlScanInit = urlBase + projectSha + '/scan'
-scanInitResp = requests.post(urlScanInit, data={}, auth=(os.getenv('HARBOR_USER'), os.getenv('HARBOR_PASS')))
+scanInitResp = requests.post(urlScanInit, data={}, auth=(username, password))
 if scanInitResp.status_code != 202:
     print('Failed to scan image')
     print('Server response code:', scanInitResp.status_code)

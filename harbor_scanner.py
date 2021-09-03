@@ -5,8 +5,11 @@ argList = sys.argv[1:]
 options = 'c:i:p:r:'
 
 arguments, values = getopt.getopt(argList, options)
+print(arguments)
+print(values)
 for currentArgument, currentValue in arguments:
     if currentArgument in ("-c"):
+        print(currentValue)
         username, password = currentValue.split(':')
     elif currentArgument in ("-i"):
         imageName = currentValue

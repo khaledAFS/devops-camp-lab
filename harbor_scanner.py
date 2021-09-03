@@ -2,14 +2,11 @@ import requests, time, sys, json, getopt, os
 
 ## Arguments needed from user ##
 argList = sys.argv[1:]
-options = 'c:i:p:r:'
+options = 'i:p:r:'
 
 arguments, values = getopt.getopt(argList, options)
 for currentArgument, currentValue in arguments:
-    if currentArgument in ("-c"):
-        print(os.getenv(currentValue))
-        # username, password = os.getenv(currentValue).split(':')
-    elif currentArgument in ("-i"):
+    if currentArgument in ("-i"):
         imageName = currentValue
     elif currentArgument in ("-p"):
         projectName = currentValue
@@ -25,7 +22,7 @@ projectSha = digestResp.json()[0]['digest']
 
 ## Initialize image scanner ##
 urlScanInit = urlBase + projectSha + '/scan'
-scanInitResp = requests.post(urlScanInit, data={}, auth=(os.getenv(currentValue)))
+scanInitResp = requests.post(urlScanInit, data={}, auth=(os.getenv('HARBOR_USER'), os.getenv('HARBOR_PASS')))
 if scanInitResp.status_code != 202:
     print('Failed to scan image')
     print('Server response code:', scanInitResp.status_code)

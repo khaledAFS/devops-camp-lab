@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Application docker build') {
             steps {
-                echo 'Building application image'
+                echo "Building application image"
                 withCredentials([usernameColonPassword(credentialsId: 'harbor-auth', variable: 'HARBOR-AUTH')]) {
                     script{
                         docker.build('$APP_IMAGE_NAME')
@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Database docker build') {
             steps {
-                echo 'Building database image'
+                echo "Building database image"
                 withCredentials([usernameColonPassword(credentialsId: 'harbor-auth', variable: 'HARBOR-AUTH')]) {
                     script{
                         docker.build('$DB_IMAGE_NAME', '-f dbDockerfile .')
@@ -39,22 +39,22 @@ pipeline {
         stage('Test: Scan docker images') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'harbor-auth', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    echo 'Scanning $APP_IMAGE_NAME image'
+                    echo "Scanning $APP_IMAGE_NAME image"
                     sh 'python harbor_scanner.py -i $APP_IMAGE_NAME -r $HARBOR_REGISTRY -p $HARBOR_REPOSITORY -c ${USERNAME}:${PASSWORD}'
-                    echo 'Scanning $DB_IMAGE_NAME image'
+                    echo "Scanning $DB_IMAGE_NAME image"
                     sh 'python harbor_scanner.py -i $DB_IMAGE_NAME -r $HARBOR_REGISTRY -p $HARBOR_REPOSITORY -c ${USERNAME}:${PASSWORD}'
                 }
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deployment stage'
+                echo "Deployment stage"
             }
         }
     }
     post {
         cleanup {
-            echo 'Post actions'
+            echo "Post actions"
         }
     }
 }

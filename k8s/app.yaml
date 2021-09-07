@@ -4,6 +4,7 @@ metadata:
   labels:
     app: farm
   name: lab-deployment
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -13,6 +14,7 @@ spec:
     metadata:
       labels:
         app: farm
+      namespace: default
     spec:
       containers:
       - env:
@@ -20,10 +22,10 @@ spec:
           value: "$(DB_USER)"
         - name: DB_PASS
           value: "$(DB_PASS)"
-        image: harbor.dev.afsmtddso.com/devsecops-lab/lab:latest
+        image: harbor.dev.afsmtddso.com/devsecops-lab/lab@sha256:edbcefb169126a463b967cdcd814f622edfade527723bb9f664052330a1a330d
         name: farm
         ports:
-        - containerPort: 8080
+        - containerPort: 5000
 
 ---
 
@@ -33,11 +35,12 @@ metadata:
   labels:
     app: farm
   name: lab-service
+  namespace: default
 spec:
   type: NodePort
   ports:
-  - name: "8080"
-    port: 8080
-    targetPort: 8080
+  - name: "5000"
+    port: 5000
+    targetPort: 5000
   selector:
     app: farm

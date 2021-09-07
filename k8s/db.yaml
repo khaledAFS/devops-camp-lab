@@ -4,6 +4,7 @@ metadata:
   labels:
     app: db
   name: db-deployment
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -13,6 +14,7 @@ spec:
     metadata:
       labels:
         app: db
+      namespace: default
     spec:
       containers:
       - env:
@@ -20,7 +22,8 @@ spec:
           value: "$(DB_PASS)"
         - name: POSTGRES_DB
           value: "$(DB_NAME)"
-        image: harbor.dev.afsmtddso.com/devsecops-lab/db:latest
+        image: harbor.dev.afsmtddso.com/devsecops-lab/db@sha256:5c10798d0bf3ab59308180dc9d002454157f7c941bdddbf8973bd3a7e8c8662a
+        imagePullPolicy: Always
         name: db
         ports:
         - containerPort: 5432
@@ -33,6 +36,7 @@ metadata:
   labels:
     app: db
   name: db-service
+  namespace: default
 spec:
   type: ClusterIP
   ports:

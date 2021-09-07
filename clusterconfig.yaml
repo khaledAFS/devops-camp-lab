@@ -1,0 +1,15 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: DevSecOps-Labs-Cluster
+  region: us-east-2
+  version: "1.21"
+
+managedNodeGroups:
+  - name: managed-ng-1
+    instanceType: t2.medium
+    minSize: 1
+    maxSize: 3
+    desiredCapacity: 1
+    volumeSize: 12

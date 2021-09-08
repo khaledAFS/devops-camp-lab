@@ -19,10 +19,16 @@ spec:
       containers:
       - env:
         - name: POSTGRES_PASSWORD
-          value: "$(DB_PASS)"
+          valueFrom:
+            secretKeyRef:
+              name: db-setup
+              key: DB_PASS
         - name: POSTGRES_DB
-          value: "$(DB_NAME)"
-        image: harbor.dev.afsmtddso.com/devsecops-lab/db@sha256:5c10798d0bf3ab59308180dc9d002454157f7c941bdddbf8973bd3a7e8c8662a
+          valueFrom:
+            secretKeyRef:
+              name: db-setup
+              key: DB_NAME
+        image: harbor.dev.afsmtddso.com/devsecops-lab/db@sha256:5c3923c5fba0ef853735ee1f724de34ced2a89dce8486a48a31e0af4f4f8376c
         imagePullPolicy: Always
         name: db
         ports:

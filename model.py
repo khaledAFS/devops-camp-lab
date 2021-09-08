@@ -288,7 +288,7 @@ class Order_Quantity(db.Model):
 
 
 def connect_to_db(app):
-    database = 'postgresql://' + os.environ["DB_USER"] + ':' + os.environ["DB_PASS"] + '@' \
+    database = 'postgresql://' + os.environ["POSTGRES_USER"] + ':' + os.environ["POSTGRES_PASSWORD"] + '@' \
                + os.environ["DB_SERVICE_SERVICE_HOST"] + ':' + os.environ["DB_SERVICE_PORT_5432_TCP_PORT"] + '/shop'
     """Connect the database to Flask app."""
 

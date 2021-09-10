@@ -17,18 +17,10 @@ spec:
       namespace: default
     spec:
       containers:
-      - env:
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
+      - envFrom:
+          - secretRef:
               name: db-setup
-              key: DB_PASS
-        - name: POSTGRES_DB
-          valueFrom:
-            secretKeyRef:
-              name: db-setup
-              key: DB_NAME
-        image: harbor.dev.afsmtddso.com/devsecops-lab/db@sha256:5c3923c5fba0ef853735ee1f724de34ced2a89dce8486a48a31e0af4f4f8376c
+        image: harbor.dev.afsmtddso.com/devsecops-lab/db:7042bf6
         imagePullPolicy: Always
         name: db
         ports:

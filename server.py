@@ -64,11 +64,10 @@ def process_logout():
     return redirect("/products")
 
 
-@app.route('/register')
+"""@app.route('/register')
 def show_register():
-    """Show registration form"""
-    if os.environ["filters"] == "True":
-        return render_template("register.html")
+    # Show registration form
+    return render_template("register.html")"""
 
 
 @app.route('/register', methods=['POST'])

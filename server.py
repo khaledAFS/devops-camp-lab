@@ -121,20 +121,20 @@ def process_registration():
 
 @app.route('/products')
 def filter_products():
-    """Allow customers to filter products"""
-    return render_template("filter.html")
+    if os.environ["filters"] == "True":
+        """Allow customers to filter products"""
+        return render_template("filter.html")
 
 
 @app.route('/search')
 def show_search_results():
     """Query database for search results"""
-    if os.environ["filters"] == "True":
-        terms = request.args.get("terms").title()
+    terms = request.args.get("terms").title()
 
-        categories = db.session.query(Product.category).group_by(Product.category).all()
-        products = db.session.query(Product).filter(Product.name.like('%' + terms + '%')).all()
+    categories = db.session.query(Product.category).group_by(Product.category).all()
+    products = db.session.query(Product).filter(Product.name.like('%' + terms + '%')).all()
 
-        return render_template("products.html", products=products, categories=categories)
+    return render_template("products.html", products=products, categories=categories)
 
 
 @app.route('/filters.json')

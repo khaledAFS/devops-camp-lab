@@ -21,7 +21,7 @@ spec:
         - secretRef:
             name: db-setup
         - configMapRef:
-            name: featuretoggles
+            name: feature-toggles
         image: harbor.dev.afsmtddso.com/devsecops-lab/lab:b169b26-d1e0479
         name: farm
         ports:

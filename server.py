@@ -64,10 +64,10 @@ def process_logout():
     return redirect("/products")
 
 
-"""@app.route('/register')
+@app.route('/register')
 def show_register():
     # Show registration form
-    return render_template("register.html")"""
+    return render_template("register.html")
 
 
 @app.route('/register', methods=['POST'])
@@ -128,13 +128,13 @@ def filter_products():
 @app.route('/search')
 def show_search_results():
     """Query database for search results"""
+    if os.environ["filters"] == "True":
+        terms = request.args.get("terms").title()
 
-    terms = request.args.get("terms").title()
+        categories = db.session.query(Product.category).group_by(Product.category).all()
+        products = db.session.query(Product).filter(Product.name.like('%' + terms + '%')).all()
 
-    categories = db.session.query(Product.category).group_by(Product.category).all()
-    products = db.session.query(Product).filter(Product.name.like('%' + terms + '%')).all()
-
-    return render_template("products.html", products=products, categories=categories)
+        return render_template("products.html", products=products, categories=categories)
 
 
 @app.route('/filters.json')

@@ -20,7 +20,9 @@ spec:
       - envFrom:
         - secretRef:
             name: db-setup
-        image: harbor.dev.afsmtddso.com/devsecops-lab/lab:7042bf6
+        - configMapRef:
+            name: featuretoggles
+        image: harbor.dev.afsmtddso.com/devsecops-lab/lab:b169b26-d1e0479
         name: farm
         ports:
         - containerPort: 5000

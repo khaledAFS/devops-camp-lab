@@ -20,7 +20,7 @@ spec:
       - envFrom:
           - secretRef:
               name: db-setup
-        image: harbor.dev.afsmtddso.com/devsecops-lab/db:7042bf6
+        image: harbor.dev.afsmtddso.com/devsecops-lab/db:b169b26-d1e0479
         imagePullPolicy: Always
         name: db
         ports:

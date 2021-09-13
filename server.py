@@ -4,6 +4,7 @@ from model import connect_to_db, db, Product, Recipe, Customer, Customer_Recipe,
 from passlib.hash import pbkdf2_sha256
 import api
 import functions
+import os
 
 app = Flask(__name__)
 
@@ -122,8 +123,10 @@ def process_registration():
 @app.route('/products')
 def filter_products():
     """Allow customers to filter products"""
-
-    return render_template("filter.html")
+    if os.environ["filters"] != "False":
+        return render_template("filter.html")
+    else:
+        return None
 
 
 @app.route('/search')

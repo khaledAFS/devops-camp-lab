@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: feature-toggles
+  namespace: default
+data:
+  filters: "False"

@@ -123,10 +123,7 @@ def process_registration():
 @app.route('/products')
 def filter_products():
     """Allow customers to filter products"""
-    if os.environ["filters"] != "False":
-        return render_template("filter.html")
-    else:
-        return None
+    return render_template("filter.html")
 
 
 @app.route('/search')

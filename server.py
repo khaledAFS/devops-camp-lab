@@ -67,7 +67,8 @@ def process_logout():
 @app.route('/register')
 def show_register():
     # Show registration form
-    return render_template("register.html")
+    if os.environ["filters"] == "True":
+        return render_template("register.html")
 
 
 @app.route('/register', methods=['POST'])
@@ -121,9 +122,8 @@ def process_registration():
 
 @app.route('/products')
 def filter_products():
-    if os.environ["filters"] == "True":
-        """Allow customers to filter products"""
-        return render_template("filter.html")
+    """Allow customers to filter products"""
+    return render_template("filter.html")
 
 
 @app.route('/search')

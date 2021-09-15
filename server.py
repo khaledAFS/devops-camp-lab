@@ -67,7 +67,6 @@ def process_logout():
 @app.route('/register')
 def show_register():
     # Show registration form
-    if os.environ["filters"] == "True":
         return render_template("register.html")
 
 
@@ -213,10 +212,14 @@ def show_account():
 @app.route('/locations')
 def show_locations():
     """Show local pickup locations"""
-
-    pickups = db.session.query(Pickup).filter(Pickup.pickup_id > 1).all()
-
-    return render_template("locations.html", pickups=pickups)
+    
+    # only show updated feature if in dev env
+    if os.environ["location-feature-enabled"] = "True"
+        pickups = db.session.query(Pickup).filter(Pickup.pickup_id > 1).all()
+        return render_template("locations.html", pickups=pickups)
+    else 
+        # TODO: replace 404 with "not developed yet" page
+        return render_template("404.html")
 
 
 # @app.route('/cart')
@@ -248,8 +251,9 @@ def show_locations():
 @app.route('/cart')
 def show_cart():
     """Query session for cart contents and display results"""
-
-    return render_template("cart.html")
+    
+    # send flag for feature toggle to cart page
+    return render_template("cart.html", flag=os.environ["location-feature-enabled"])
 
 
 @app.route('/cart', methods=['POST'])

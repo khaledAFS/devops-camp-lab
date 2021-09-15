@@ -218,8 +218,7 @@ def show_locations():
         pickups = db.session.query(Pickup).filter(Pickup.pickup_id > 1).all()
         return render_template("locations.html", pickups=pickups)
     else 
-        # TODO: replace 404 with "not developed yet" page
-        return render_template("404.html")
+        return render_template("coming-soon.html")
 
 
 # @app.route('/cart')

@@ -214,10 +214,10 @@ def show_locations():
     """Show local pickup locations"""
     
     # only show updated feature if in dev env
-    if os.environ["location-feature-enabled"] = "True"
+    if os.environ["location-feature-enabled"] == "True":
         pickups = db.session.query(Pickup).filter(Pickup.pickup_id > 1).all()
         return render_template("locations.html", pickups=pickups)
-    else 
+    else:
         # TODO: replace 404 with "not developed yet" page
         return render_template("404.html")
 

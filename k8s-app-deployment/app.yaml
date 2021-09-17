@@ -11,7 +11,7 @@ spec:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
-  minReadySeconds: 10
+  minReadySeconds: 20
   replicas: 1
   selector:
     matchLabels:

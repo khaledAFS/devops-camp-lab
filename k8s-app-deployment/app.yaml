@@ -6,6 +6,12 @@ metadata:
   name: lab-deployment
   namespace: default
 spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 10
   replicas: 1
   selector:
     matchLabels:

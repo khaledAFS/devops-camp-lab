@@ -3,7 +3,7 @@
 --
 
 
--- NEW COMMENT - testing db pipeline pt 1
+-- NEW COMMENT - testing db pipeline pt 2
 
 -- Dumped from database version 9.5.4
 -- Dumped by pg_dump version 9.5.4

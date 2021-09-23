@@ -4,4 +4,4 @@ metadata:
   name: feature-toggles
   namespace: default
 data:
-  location-feature-enabled: "True"
+  LOCATION_FEATURE_ENABLED: "True"

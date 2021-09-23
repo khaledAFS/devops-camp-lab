@@ -286,9 +286,13 @@ class Order_Quantity(db.Model):
                                                                                                   self.order_id)
 
 
-def connect_to_db(app):
-    database = 'postgresql://' + os.environ["POSTGRES_USER"] + ':' + os.environ["POSTGRES_PASSWORD"] + '@' \
-               + os.environ["DB_SERVICE_SERVICE_HOST"] + ':' + os.environ["DB_SERVICE_PORT_5432_TCP_PORT"] + '/shop'
+def connect_to_db(app, test=False):
+    if test:
+        database = 'postgresql://' + os.environ["POSTGRES_USER"] + ':' + os.environ["POSTGRES_PASSWORD"] + '@' + \
+                   os.environ["DB_SERVICE_SERVICE_HOST"] + ':' + os.environ["DB_SERVICE_PORT_5432_TCP_PORT"] + '/test'
+    else:
+        database = 'postgresql://' + os.environ["POSTGRES_USER"] + ':' + os.environ["POSTGRES_PASSWORD"] + '@' + \
+                   os.environ["DB_SERVICE_SERVICE_HOST"] + ':' + os.environ["DB_SERVICE_PORT_5432_TCP_PORT"] + '/shop'
     """Connect the database to Flask app."""
 
     # Configure to use PostgreSQL database

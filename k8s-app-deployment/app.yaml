@@ -28,7 +28,7 @@ spec:
             name: db-setup
         - configMapRef:
             name: feature-toggles
-        image: harbor.dev.afsmtddso.com/devsecops-lab/lab:b169b26-d1e0479
+        image: harbor.dev.afsmtddso.com/devsecops-lab/lab:f4cff0e-80d21f9
         name: farm
         ports:
         - containerPort: 5000
